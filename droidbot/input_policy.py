@@ -438,6 +438,7 @@ class UtgGreedySearchPolicy(UtgBasedInputPolicy):
         # get humanoid result, use the result to sort possible events
         # including back events
         if self.device.humanoid is not None:
+            print("**********SORT inputs by HumanDroid*********")
             possible_events = self.__sort_inputs_by_humanoid(possible_events)
 
         # If there is an unexplored event, try the event first

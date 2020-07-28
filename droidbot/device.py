@@ -85,7 +85,7 @@ class Device(object):
             self.telnet: False,
             self.droidbot_app: True,
             self.minicap: True,
-            self.logcat: True,
+            self.logcat: False,
             self.user_input_monitor: True,
             self.process_monitor: True,
             self.droidbot_ime: True
