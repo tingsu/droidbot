@@ -514,7 +514,7 @@ class Device(object):
         # if m:
         #     return m.group(1) + "/" + m.group(2)
         self.logger.warning("Unable to get top activity name.")
-        return ""  # hot fix, return an empty string rather than None
+        return None
 
     def get_current_activity_stack(self):
         """
@@ -815,6 +815,11 @@ class Device(object):
                     break
 
             foreground_activity = self.get_top_activity_name()
+
+            # Ting: Hot fix to resolve the case when failed to get the top activity name
+            if foreground_activity is None:
+                foreground_activity = "none.package.name/none.activity.name"
+
             activity_stack = self.get_current_activity_stack()
             background_services = self.get_service_names()
             screenshot_path = self.take_screenshot()
