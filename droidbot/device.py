@@ -514,7 +514,7 @@ class Device(object):
         # if m:
         #     return m.group(1) + "/" + m.group(2)
         self.logger.warning("Unable to get top activity name.")
-        return None
+        return ""  # hot fix, return an empty string rather than None
 
     def get_current_activity_stack(self):
         """
