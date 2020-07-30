@@ -99,6 +99,7 @@ def main():
     the main function
     it starts a droidbot according to the arguments given in cmd line
     """
+    print("********START Droidot************")
     opts = parse_args()
     import os
     if not os.path.exists(opts.apk_path):
