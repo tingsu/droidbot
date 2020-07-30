@@ -800,7 +800,20 @@ class Device(object):
         self.logger.debug("getting current device state...")
         current_state = None
         try:
-            views = self.get_views()
+            max_tries = 10
+            tries = 0
+            views = None
+            while True:
+                views = self.get_views()
+                if views is None:
+                    time.sleep(0.2)
+                    tries += 1
+                    self.logger.warning("views is None, try to get view once again")
+                    if tries > max_tries:
+                        break
+                else:
+                    break
+
             foreground_activity = self.get_top_activity_name()
             activity_stack = self.get_current_activity_stack()
             background_services = self.get_service_names()
