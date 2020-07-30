@@ -342,7 +342,8 @@ class ADB(Adapter):
         (x0, y0) = self.__transform_point_by_orientation((x0, y0), orientation, self.get_orientation())
         (x1, y1) = self.__transform_point_by_orientation((x1, y1), orientation, self.get_orientation())
 
-        version = self.get_sdk_version()
+        #version = self.get_sdk_version()
+        version = 25 # hot fix by Ting
         if version <= 15:
             self.logger.error("drag: API <= 15 not supported (version=%d)" % version)
         elif version <= 17:
