@@ -179,7 +179,7 @@ class Device(object):
             temp_dir = os.path.join(self.output_dir, "temp")
             if os.path.exists(temp_dir):
                 import shutil
-                shutil.rmtree(temp_dir)
+                shutil.rmtree(temp_dir, ignore_errors=True)
 
     def tear_down(self):
         for adapter in self.adapters:
